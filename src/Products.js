@@ -3,20 +3,20 @@ import  '../assets/Products.css'
 const Products = () => {
     return(
         <div id="products">
-            <div class="navigator">
-                 <div class="buttons-nav">
-                <button class="products-button">PRODUCTS</button>
-                <button class="expenses-button">EXPENSES</button>
+            <div className="navigator">
+                 <div className="buttons-nav">
+                <button className="products-button">PRODUCTS</button>
+                <button className="expenses-button">EXPENSES</button>
                  </div>
-                <p class="img-text">Gal Gadot</p>
+                <p className="img-text">Gal Gadot</p>
             
             </div>
         
-        <div class="table-container">
-            <div class="table-nav">
+        <div className="table-container">
+            <div className="table-nav">
             <h1>Products</h1>
             
-            <div class="select-box">
+            <div className="select-box">
             <p>Filter by:
             <select>
                 <option value="year">Year</option>
@@ -43,7 +43,7 @@ const Products = () => {
                  <td>Carbonated soft drink</td>
                  <td>26.08.2019</td>
                  <td>75</td>
-                 <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                 <td><button className="btn"><i className="far fa-edit"></i></button> <button class="btn"><i className="far fa-trash-alt"></i></button></td>
                 </tr>
                 <tr>
                     <td>Coca-cola</td>
@@ -51,7 +51,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -59,7 +59,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -67,7 +67,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -75,7 +75,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -83,7 +83,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -91,7 +91,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -99,7 +99,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                    </tr>
                    <tr>
                         <td>Coca-cola</td>
@@ -107,7 +107,7 @@ const Products = () => {
                         <td>Carbonated soft drink</td>
                         <td>26.08.2019</td>
                         <td>75</td>
-                        <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                        <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                        </tr>
                        <tr>
                             <td>Coca-cola</td>
@@ -115,7 +115,7 @@ const Products = () => {
                             <td>Carbonated soft drink</td>
                             <td>26.08.2019</td>
                             <td>75</td>
-                            <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                            </tr>
                            <tr>
                                 <td>Coca-cola</td>
@@ -123,10 +123,10 @@ const Products = () => {
                                 <td>Carbonated soft drink</td>
                                 <td>26.08.2019</td>
                                 <td>75</td>
-                                <td><button class="btn"><i class="far fa-edit"></i></button> <button class="btn"><i class="far fa-trash-alt"></i></button></td>
+                                <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
                                </tr>
 
-                               <button class="fixedbutton">NEW PRODUCT</button>
+                               <button className="fixedbutton">NEW PRODUCT</button>
             </table>
         </div>
       
