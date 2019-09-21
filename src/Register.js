@@ -1,5 +1,6 @@
 import React from 'react'
 import  '../assets/Register.css'
+import  '../assets/Shared.css'
 
 const Register = () => {
     return (

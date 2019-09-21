@@ -1,5 +1,12 @@
 import React from 'react'
 import  '../assets/Products.css'
+import  '../assets/Shared.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
+
+
 const Products = () => {
     return(
         <div id="products">
@@ -43,7 +50,7 @@ const Products = () => {
                  <td>Carbonated soft drink</td>
                  <td>26.08.2019</td>
                  <td>75</td>
-                 <td><button className="btn"><i className="far fa-edit"></i></button> <button class="btn"><i className="far fa-trash-alt"></i></button></td>
+                 <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button class="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                 </tr>
                 <tr>
                     <td>Coca-cola</td>
@@ -51,7 +58,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -59,7 +66,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -67,7 +74,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -75,7 +82,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -83,7 +90,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -91,7 +98,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                     <td>Coca-cola</td>
@@ -99,7 +106,7 @@ const Products = () => {
                     <td>Carbonated soft drink</td>
                     <td>26.08.2019</td>
                     <td>75</td>
-                    <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                    <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                    </tr>
                    <tr>
                         <td>Coca-cola</td>
@@ -107,7 +114,7 @@ const Products = () => {
                         <td>Carbonated soft drink</td>
                         <td>26.08.2019</td>
                         <td>75</td>
-                        <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                        <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                        </tr>
                        <tr>
                             <td>Coca-cola</td>
@@ -115,7 +122,7 @@ const Products = () => {
                             <td>Carbonated soft drink</td>
                             <td>26.08.2019</td>
                             <td>75</td>
-                            <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                            <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                            </tr>
                            <tr>
                                 <td>Coca-cola</td>
@@ -123,7 +130,7 @@ const Products = () => {
                                 <td>Carbonated soft drink</td>
                                 <td>26.08.2019</td>
                                 <td>75</td>
-                                <td><button className="btn"><i className="far fa-edit"></i></button> <button className="btn"><i className="far fa-trash-alt"></i></button></td>
+                                <td><button className="btn"><FontAwesomeIcon icon={faEdit} /></button> <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
                                </tr>
 
                                <button className="fixedbutton">NEW PRODUCT</button>

@@ -1,5 +1,6 @@
 import React from 'react'
 import  '../assets/Newproduct.css'
+import  '../assets/Shared.css'
 
 const Newproduct = () => {
     return(

@@ -1,5 +1,6 @@
 import React from 'react'
 import  '../assets/Expenses.css'
+import  '../assets/Shared.css'
 
 const Expenses = () => {
     return (
