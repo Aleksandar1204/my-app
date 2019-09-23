@@ -6,9 +6,10 @@ import Products from './Products'
 import Newproduct from './Newproduct'
 import Expenses from './Expenses'
 import Wrapper from './Wrapper'
+import Home from './Home'
 
 
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 const app = document.getElementById('app')
 
@@ -16,52 +17,56 @@ const Menu = () => {
     return (
         <ul>
             <li>
-                <Link to= '/'>Home</Link>
+                <Link to='/'>Home</Link>
             </li>
             <li>
-            <Link to= '/register'>Register</Link>
+                <Link to='/login'>Log in</Link>
             </li>
             <li>
-            <Link to= '/products'>Products</Link>
+                <Link to='/register'>Register</Link>
             </li>
             <li>
-            <Link to= '/newproduct'>Newproduct</Link>
+                <Link to='/products'>Products</Link>
             </li>
             <li>
-            <Link to= '/expenses'>Expenses</Link>
+                <Link to='/newproduct'>Newproduct</Link>
             </li>
             <li>
-            <Link to= '/user'>User</Link>
+                <Link to='/expenses'>Expenses</Link>
             </li>
-         
+            <li>
+                <Link to='/user'>User</Link>
+            </li>
+
         </ul>
     )
 }
 
-const Routes = () =>{
+const Routes = () => {
     return (
         <Router>
-            <Menu/>
+            <Menu />
             <Switch>
-            <Route exact path='/' component={Login} />
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/products' component={Products} />
-            <Route exact path='/newproduct' component={Newproduct} />
-            <Route exact path='/expenses' component={Expenses} />
-            <Route exact path='/user' render={() =>
-                <React.Fragment>
-                        <Wrapper/>
-                        
+                <Route exact path='/' component={Home} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/register' component={Register} />
+                <Route exact path='/products' component={Products} />
+                <Route exact path='/newproduct' component={Newproduct} />
+                <Route exact path='/expenses' component={Expenses} />
+                <Route exact path='/user' render={() =>
+                    <React.Fragment>
+                        <Wrapper />
 
-                </React.Fragment>
-            }
-            />
 
-            
-            
+                    </React.Fragment>
+                }
+                />
+
+
+
             </Switch>
         </Router>
-        )
+    )
 }
 
 ReactDOM.render(<Routes />, app)

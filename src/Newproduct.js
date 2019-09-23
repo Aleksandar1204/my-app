@@ -1,6 +1,8 @@
 import React from 'react'
 import  '../assets/Newproduct.css'
 import  '../assets/Shared.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Newproduct = () => {
     return(
@@ -48,7 +50,7 @@ const Newproduct = () => {
                 </p>
 
                 <p className="input-container">
-                    <label class="text-field-input" for="">Product Price</label>
+                    <label className="text-field-input" for="">Product Price</label>
                     <input type="text" className="text-field"/>
                 </p>
 
@@ -62,7 +64,7 @@ const Newproduct = () => {
     </div>
     <div className="second-container">
             <div className="products-add">
-            <i className="fas fa-plus-circle fa-3x"></i>
+            <FontAwesomeIcon icon={faPlusCircle } />
             <p>You are creating a new product</p>
     </div>
 

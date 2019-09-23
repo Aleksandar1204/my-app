@@ -1,17 +1,17 @@
 import React from 'react'
 
 class User extends React.Component {
-    render () {
+    render() {
         return (
-            
+
             <React.Fragment>
-            <div>
-            
-            <p>{this.props.name}</p>
-            
-            <p>{this.props.email}</p>
-        </div>
-        </React.Fragment>
+                <div>
+
+                    <p>{this.props.name}</p>
+
+                    <p>{this.props.email}</p>
+                </div>
+            </React.Fragment>
         )
     }
 }
