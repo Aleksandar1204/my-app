@@ -4,10 +4,7 @@ class Home extends React.Component {
     constructor() {
         super()
         /* Initial state */
-        this.state = {
-            show: false
-
-        }
+        this.state = { show: false }
     }
 
     showOrHide = () => {
