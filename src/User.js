@@ -1,4 +1,5 @@
 import React from 'react'
+import '../assets/User.css'
 
 class User extends React.Component {
     render() {
@@ -6,10 +7,15 @@ class User extends React.Component {
 
             <React.Fragment>
                 <div>
-
-                    <p>{this.props.name}</p>
-
-                    <p>{this.props.email}</p>
+                    <table id="data">
+                    <tbody>
+                <tr>
+               <td>{this.props.id}</td>
+               <td>{this.props.name}</td>
+               <td>{this.props.email}</td>
+              </tr>
+              </tbody>
+              </table>
                 </div>
             </React.Fragment>
         )
