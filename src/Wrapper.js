@@ -6,7 +6,7 @@ export default class Wrapper extends React.Component {
     render(){
      let users =[]
      users= data.map(element => 
-        {return <User key={element.id} name={element.name} email={element.email}/>})
+        {return <User key={element.id} first={element.Firstname} last={element.Lastname} email={element.email}/>})
     
         return(users)
     }

@@ -1,33 +1,39 @@
 const data = [
     {
         id:1,
-        name:'Aleksandar',
+        Firstname:'Aleksandar',
+        Lastname:'Dimitar',
         email:'aleksandar@test.com'
 
     }, 
     {
         id:2,
-        name:'Niki',
+        Firstname:'Niki',
+        Lastname:'Dimitar',
         email:'n@test.com'
     }, 
     {
         id:3,
-        name:'Dimitar',
+        Firstname:'Dimitar',
+        Lastname:'Dimitar',
         email:'d@test.com'
     },
     {
         id:4,
-        name:'Dimitar',
+        Firstname:'Dimitar',
+        Lastname:'Dimitar',
         email:'d@test.com'
     },
     {
         id:5,
-        name:'Dimitar',
+        Firstname:'Dimitar',
+        Lastname:'Dimitar',
         email:'d@test.com'
     },
     {
         id:6,
-        name:'Dimitar',
+        Firstname:'Dimitar',
+        Lastname:'Dimitar',
         email:'d@test.com'
     }
 ]

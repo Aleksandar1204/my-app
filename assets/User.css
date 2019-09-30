@@ -1,4 +1,4 @@
-#data{
+#datas{
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -6,13 +6,13 @@
     width: 100%;
   }
   
-  #data td, #data th {
+  #datas td, #datas th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  #data tr:nth-child(even){background-color: #f2f2f2;}
+  #datas tr:nth-child(even){background-color: #f2f2f2;}
   
-  #data tr:hover {background-color: #ddd;}
+  #datas tr:hover {background-color: #ddd;}
   
  
