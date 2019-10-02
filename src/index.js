@@ -7,7 +7,7 @@ import Newproduct from './Newproduct'
 import Expenses from './Expenses'
 import Wrapper from './Wrapper'
 import Home from './Home'
-import Key from './Key'
+
 
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
@@ -56,7 +56,6 @@ const Routes = () => {
                 <Route exact path='/expenses' component={Expenses} />
                 <Route exact path='/user' render={() =>
                     <React.Fragment>
-                        <Key/>
                         <Wrapper />
 
 

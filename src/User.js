@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-// import '../assets/User.css'
+import '../assets/User.css'
 
 
 class User extends React.Component {
@@ -10,14 +10,15 @@ class User extends React.Component {
         return (
             
             <div>
-                <table>
+                <table id='datas'>
 
-                    <tr>
+                    <tr >
                         <td>{this.props.key}</td>
-                        <td>{this.props.first}</td>
-                        <td>{this.props.last}</td>
+                        <td>{this.props.name}</td>
+                        <td>{this.props.username}</td>
                         <td>{this.props.email}</td>
-                        <td>button</td>
+                        
+                        
                     </tr>
 
                 </table>
