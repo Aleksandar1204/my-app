@@ -8,6 +8,10 @@ import Expenses from './Expenses'
 import Wrapper from './Wrapper'
 import Home from './Home'
 
+import '../assets/Menu.css'
+
+
+
 
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
@@ -16,6 +20,7 @@ const app = document.getElementById('app')
 
 const Menu = () => {
     return (
+        <div id="menu">
         <ul>
             <li>
                 <Link to='/'>Home</Link>
@@ -40,8 +45,11 @@ const Menu = () => {
             </li>
 
         </ul>
+        </div>
     )
 }
+
+
 
 const Routes = () => {
     return (
@@ -54,8 +62,10 @@ const Routes = () => {
                 <Route exact path='/products' component={Products} />
                 <Route exact path='/newproduct' component={Newproduct} />
                 <Route exact path='/expenses' component={Expenses} />
+                
                 <Route exact path='/user' render={() =>
                     <React.Fragment>
+                        
                         <Wrapper />
 
 

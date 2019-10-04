@@ -1,0 +1,29 @@
+.alert-box{
+    background: #fff;
+    width: 440px;
+    height: 225px;
+    padding: 40px;
+    border-radius: 10px;
+    position: fixed;
+    left: 664px;
+    top: 332px;
+  
+}
+
+.p-header{
+    font-weight: bold;
+    font-size: 22px;
+    color: #576574;
+    padding-bottom: 15px;
+}
+
+p{
+    color: #576574;;
+    font-size: 18px;
+}
+
+.alert-buttons{
+    position: absolute;
+    bottom: 35px;
+    right: 50px;
+}
