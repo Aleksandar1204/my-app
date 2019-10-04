@@ -2,7 +2,7 @@ import React from 'react'
 import Popup from "reactjs-popup";
 import Expand_Popup from './Expand_Popup'
 
-import '../assets/Products.css'
+
 
 
 class User extends React.Component {
@@ -12,7 +12,10 @@ class User extends React.Component {
             <div className="table-container">
 
                 <table>
+
+
                     <tbody>
+                        
                         <tr >
                             <td>{this.props.name}</td>
                             <td>{this.props.username}</td>
