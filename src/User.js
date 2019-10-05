@@ -5,18 +5,19 @@ import Expand_Popup from './Expand_Popup'
 
 
 
+
 class User extends React.Component {
     render() {
         return (
 
-            <div className="table-container">
+            <div>
 
                 <table>
 
 
-                    <tbody>
+                    <tbody >
                         
-                        <tr >
+                        <tr>
                             <td>{this.props.name}</td>
                             <td>{this.props.username}</td>
                             <td>{this.props.email}</td>
