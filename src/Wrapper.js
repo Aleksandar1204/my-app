@@ -1,7 +1,8 @@
 import React from 'react'
-import User from './User'
+
 import axios from 'axios'
 import Error from './Error'
+import User from './User'
 
 
 class Wrapper extends React.Component {
