@@ -7,6 +7,7 @@ import Newproduct from './Newproduct'
 import Expenses from './Expenses'
 import Wrapper from './Wrapper'
 import Home from './Home'
+import UsersList from './UsersList'
 
 
 
@@ -66,13 +67,14 @@ const Routes = () => {
                 <Route exact path='/expenses' component={Expenses} />
                 
                 <Route exact path='/user' render={() =>
-                    <React.Fragment>
+                   
                         
-                        <Wrapper />
+                        <Wrapper
+                         component = {UsersList}
+                         url = {'https://jsonplaceholder.typicode.com/users'}/>
                        
 
 
-                    </React.Fragment>
                 }
                 />
 
