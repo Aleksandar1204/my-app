@@ -1,5 +1,5 @@
 import React from 'react'
-import UsersList from './UsersList'
+
 import axios from 'axios'
 import Error from './Error'
 
@@ -13,7 +13,8 @@ class Wrapper extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: null,
+            data: [],
+            error:null,
             loading:false
 
         }
@@ -21,13 +22,14 @@ class Wrapper extends React.Component {
 
     componentDidMount() {
         this.setState({loading: true})
-        axios.get(this.props.url)
+        axios({method: this.props.methodType,
+                url: this.props.url})
             .then((response) => {
            
                 this.setState({ data: response.data, loading :false })
             })
             .catch((error) => {
-                this.setState({ data: <Error /> })
+                this.setState({ data: <Error />, loading: false  })
             })
     }
 
@@ -35,7 +37,7 @@ class Wrapper extends React.Component {
 
         return (
             <React.Fragment>
-           <this.props.component data={this.props.data}/>
+           <this.props.component data={this.state.data}/>
            {this.state.error}
            {this.state.loading && <div>LOADING...</div>}
             </React.Fragment>

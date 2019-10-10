@@ -8,6 +8,8 @@ const Expand_Popup = () => {
 
 
     <div class="alert-box">
+
+
       <p class="p-header">Delete Product</p>
       <p>You are about to delete this product. Are you sure you wish to continue? </p>
       <div class="alert-buttons">
@@ -15,7 +17,7 @@ const Expand_Popup = () => {
         <button class="delete-button">DELETE</button>
       </div>
     </div>
-
+    
   )
 }
 

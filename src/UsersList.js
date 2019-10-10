@@ -3,7 +3,7 @@ import User from './User'
 
 import '../assets/Products.css'
 
-const UsersList =(props) =>{
+const UsersList = (props) => {
     return  props.data.map((element) => {
             return <User
                 key={element.id}

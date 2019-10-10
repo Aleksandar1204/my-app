@@ -3,11 +3,14 @@ import Popup from "reactjs-popup";
 import Expand_Popup from './Expand_Popup'
 
 
-const User = () => {
+class User extends React.Component  {
+    render(){
     return(
-        
-        <table>
-            <tbody>
+        <React.Fragment>
+            <div>
+                <table>
+                    <tbody>
+<tr>
                 <td>{this.props.id}</td>
                 <td>{this.props.name}</td>
                 <td>{this.props.username}</td>
@@ -17,10 +20,14 @@ const User = () => {
             </Popup>
             
             </td>
+            </tr>
             </tbody>
-        </table>
+            </table>
+            </div>
+ 
+        </React.Fragment>
       
     )
 }
-
+}
 export default User
