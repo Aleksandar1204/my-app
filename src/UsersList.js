@@ -12,12 +12,8 @@ const UsersList = (props) => {
                 email={element.email}
             />
         })
-}
-
-
-
-
-
+    }
+ 
 
 
 export default UsersList

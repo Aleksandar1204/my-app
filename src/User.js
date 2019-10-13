@@ -8,24 +8,22 @@ class User extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div>
-                    <table>
-
-                        <tbody>
+               
+                   
                             <tr>
-                                <td>{this.props.id}</td>
                                 <td>{this.props.name}</td>
                                 <td>{this.props.username}</td>
                                 <td>{this.props.email}</td>
                                 <td><Popup trigger={<button>EXPAND</button>} position="left center">
-                                    <div><Expand_Popup /></div>
+                                    <div><Expand_Popup/></div>
                                 </Popup>
 
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            
+                            
+                    
+               
 
             </React.Fragment>
 
