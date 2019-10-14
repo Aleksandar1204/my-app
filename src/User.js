@@ -14,7 +14,7 @@ class User extends React.Component {
                                 <td>{this.props.name}</td>
                                 <td>{this.props.username}</td>
                                 <td>{this.props.email}</td>
-                                <td><Popup trigger={<button>EXPAND</button>} position="left center">
+                                <td><Popup trigger={<button id={this.props.id}>EXPAND</button>} position="left center">
                                     <div><Expand_Popup/></div>
                                 </Popup>
 

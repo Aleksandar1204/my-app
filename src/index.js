@@ -1,5 +1,7 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
+import {Provider} from 'react-redux'
+import store from './redux/store.js'
 import Login from './Login'
 import Register from './Register'
 import Products from './Products'
@@ -8,6 +10,7 @@ import Expenses from './Expenses'
 import Wrapper from './Wrapper'
 import Home from './Home'
 import UsersList from './UsersList'
+
 
 import '../assets/Menu.css'
 
@@ -75,5 +78,8 @@ const Routes = () => {
     )
 }
 
-ReactDOM.render(<Routes />, app)
+ReactDOM.render(
+<Provider store={store}>
+<Routes />
+</Provider>, app)
 
