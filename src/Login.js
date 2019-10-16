@@ -1,13 +1,17 @@
 import React from 'react'
 import '../assets/Login.css'
 import '../assets/Shared.css'
+import store from './redux/store'
+import { updateUser, deleteUser } from './redux/actions/updateUser'
+import Alert from './Alert.js'
 
 class Login extends React.Component {
     constructor() {
         super()
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            phonenumber:''
         }
     }
 
@@ -20,45 +24,39 @@ class Login extends React.Component {
     }
 
     submit = () => {
-        alert(this.state.username + '' + this.state.password)
+        store.dispatch(updateUser(
+            this.state.username, 
+            this.state.password,
+            this.state.phonenumber
+            )
+        )
+    }
+
+    delete = () => {
+        store.dispatch(deleteUser())
     }
 
     saveInput = (event) => {
-        this.state({[event.target.id]: event.target.value})
+        this.setState({[event.target.id]: event.target.value})
     }
     render() {
         return (
-            <div id="login">
+           <React.Fragment>
+                  <Alert/>
+                           
+                            <input  id='username' className="text-field" placeholder='Username' onChange={this.checkInput} />
 
-                <div className="box-container">
-
-                    <form>
-
-                        <p className="input-container">
-                            <label className="text-field-input" for="">E-mail</label>
-                            <input type="text" id='password' className="text-field" placeholder='Username' onChange={this.checkInput} />
-                            
-                        </p>
-
-                        <p className="input-container">
-                            <label className="text-field-input" for="">Password</label>
-                            <input type="password" className="text-field" placeholder='Password' onChange={this.saveInput} />
-                        </p>
-
-
+                            <input id="password"  className="text-field" placeholder='Password' onChange={this.saveInput} />
+                           
+                            <input id="phonenumber"  className="text-field" placeholder='Phonenumber' onChange={this.saveInput} />
 
                         <button id='submit' className="primary-button"  onClick={this.submit}>SIGN IN</button>
 
+                        <button id='delete' className="primary-button"  onClick={this.delete}>DELETE</button>
+                        
 
-                    </form>
 
-                </div>
-
-                <div className="aditional-info">
-                    <p>Or if you don't have an account.<a href="#"> Register</a></p>
-                </div>
-
-            </div>
+</React.Fragment>
         )
     }
 }
