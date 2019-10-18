@@ -36,10 +36,12 @@ class Wrapper extends React.Component {
                     <table >
                         <thead>
                             <tr>
+                            <th>ID</th>
                                 <th>NAME</th>
                                 <th>USERNAME</th>
                                 <th>E-MAIL</th>
                                 <th></th>
+                                
                             </tr>
                         </thead>
                         <tbody>

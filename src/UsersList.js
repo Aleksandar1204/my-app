@@ -7,6 +7,7 @@ const UsersList = (props) => {
     return  props.data.map((element) => {
             return <User
                 key={element.id}
+                id={element.id}
                 name={element.name}
                 username={element.username}
                 email={element.email}
