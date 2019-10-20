@@ -10,12 +10,15 @@ import Expenses from './Expenses'
 import Wrapper from './Wrapper'
 import Home from './Home'
 import UsersList from './UsersList'
+import Weather from './Weather'
+import WeatherApi from './WeatherApi'
 
 
 import '../assets/Menu.css'
 
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
 
 const app = document.getElementById('app')
 
@@ -44,6 +47,10 @@ const Menu = () => {
                 <li>
                     <Link to='/user'>User</Link>
                 </li>
+                <li>
+                    <Link to='/weather'>Weather</Link>
+                </li>
+
 
             </ul>
         </div>
@@ -72,6 +79,15 @@ const Routes = () => {
                     />
                 }
                 />
+                 <Route exact path='/weather' render={() =>
+                    <WeatherApi
+                        component={Weather}
+                        methodType='GET'
+                        url='https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=e56b1e36f98ade931dfde82721d90023'
+                    />
+                }
+                />
+               
 
             </Switch>
         </Router>
