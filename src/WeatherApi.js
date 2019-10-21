@@ -10,9 +10,9 @@ class WeatherApi extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          data:[],
-    
+            data: [],
             error: null,
+            show: false,
             loading: false
         }
     }
@@ -24,7 +24,7 @@ class WeatherApi extends React.Component {
         })
             .then((response) => {
                 this.setState({ data: response.data, loading: false })
-                   
+
             })
             .catch((error) => {
                 this.setState({ data: <Error />, loading: false })
@@ -34,8 +34,8 @@ class WeatherApi extends React.Component {
     render() {
         return (
             <React.Fragment>
-         <this.props.component data={this.state.data} />
-              
+                <this.props.component data={this.state.data} />
+
                 {this.state.error}
                 {this.state.loading && <div>LOADING...</div>}
             </React.Fragment>

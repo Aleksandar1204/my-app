@@ -83,7 +83,7 @@ const Routes = () => {
                     <WeatherApi
                         component={Weather}
                         methodType='GET'
-                        url='https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=e56b1e36f98ade931dfde82721d90023'
+                        url='https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=e56b1e36f98ade931dfde82721d90023'
                     />
                 }
                 />

@@ -2,13 +2,9 @@ import React from 'react'
 
 
 
-
-
-
-
 export default class Weather extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
      
       show: false
@@ -20,7 +16,8 @@ export default class Weather extends React.Component {
       <React.Fragment>
 
 <h1>asdasdas</h1>
-      {this.props.data}
+     <p> {this.props.weather} </p> 
+     
        
 
       </React.Fragment>
