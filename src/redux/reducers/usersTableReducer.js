@@ -3,7 +3,8 @@ export function usersTableReducer(state = { users: [] }, action) {
     case "WRITE_USERS": {
       return {
         ...state,
-        users: action.payload
+        users: action.payload,
+        
       };
     }
     case "SAVE_USER": {

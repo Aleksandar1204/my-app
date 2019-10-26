@@ -4,10 +4,12 @@ import { writeUsersToStore } from "./redux/actions/writeUsersToStore";
 import { connect } from "react-redux";
 
 class Table extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      showModal: null
+      showModal: null,
+      data: null,
+      
     };
   }
   componentDidMount() {
@@ -22,29 +24,36 @@ class Table extends React.Component {
       });
   }
 
+
+
   addUser = () => {
     this.setState({
-      showModal: (
+      showModal: 
+       
         <div>
+          
           <input placeholder="name" />
           <input placeholder="username" />
           <input placeholder="email" />
           <input placeholder="address" />
+          
         </div>
-      )
+         
+          
+      
     });
   };
 
-  editUser = user => {
+  editUser = (user) => {
     this.setState({
-      showModal: (
+      showModal: 
         <div>
           <input defaultValue={user.name} />
           <input defaultValue={user.username} />
           <input defaultValue={user.email} />
           <input defaultValue={user.address} />
         </div>
-      )
+      
     });
   };
 
@@ -74,13 +83,9 @@ class Table extends React.Component {
     }
     return (
       <React.Fragment>
+         <button id="add" onClick={this.addUser}> Add user </button>
         <table>
           <thead>
-            <td>
-              <button id="add" onClick={this.addUser}>
-                Add user
-              </button>
-            </td>
           </thead>
           <tbody>{usersList}</tbody>
         </table>

@@ -1,43 +1,86 @@
 import React from "react";
 
 import axios from "axios";
-import Error from "./Error";
-import "../assets/DataTable.css";
+
+
+
+import {weatherAction} from './redux/actions/weatherAction'
+
+import {connect} from 'react-redux'
+
+
+
+
+
 
 class WeatherApi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      error: null,
-      show: false,
-      loading: false
+     data:null,
+     
+    
+  
+      
+     
+     
+      
     };
   }
+  
   componentDidMount() {
-    this.setState({ loading: true });
-    axios({
-      method: this.props.methodType,
-      url: this.props.url
-    })
+    axios
+      .get(`https://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
       .then(response => {
-        this.setState({ data: response.data, loading: false });
+        
+        this.props.weatherAction(response.data);
       })
       .catch(error => {
-        this.setState({ data: <Error />, loading: false });
+        console.log(error);
       });
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <this.props.component data={this.state.data} />
 
-        {this.state.error}
-        {this.state.loading && <div>LOADING...</div>}
-      </React.Fragment>
+
+  render() {  
+    let getWeather = null;
+    if (this.props.weather){
+      getWeather = this.props.weather.map(city =>{
+        return(
+          <tr key={city.id}>
+            <td>{city.cod}</td>
+            <td>{city.message}</td>
+            <td>{city.count}</td>
+            
+            </tr>
+        )
+      })
+    }
+
+    return (
+   <React.Fragment>
+     <h1>WEATHER</h1>
+     <br/>
+    <table>{getWeather}</table>
+   </React.Fragment>
     );
   }
 }
 
-export default WeatherApi;
+  
+function mappStateToProps(state) {
+  return {
+    weather: state.weatherReducer.weather
+  };
+}
+
+function mappDispatchToProps(dispatch) {
+  return {
+    weatherAction: data => dispatch(weatherAction(data))
+  };
+}
+
+export default connect(
+  mappStateToProps,
+  mappDispatchToProps
+)(WeatherApi)

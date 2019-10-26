@@ -10,7 +10,7 @@ import Expenses from "./Expenses";
 import Wrapper from "./Wrapper";
 import Home from "./Home";
 import UsersList from "./UsersList";
-import Weather from "./Weather";
+
 import WeatherApi from "./WeatherApi";
 import Table from "./Table";
 
@@ -68,6 +68,7 @@ const Routes = () => {
         <Route exact path="/newproduct" component={Newproduct} />
         <Route exact path="/expenses" component={Expenses} />
         <Route exact path="/table" component={Table} />
+        <Route exact path="/weather" component={WeatherApi} />
 
         <Route
           exact
@@ -80,17 +81,7 @@ const Routes = () => {
             />
           )}
         />
-        <Route
-          exact
-          path="/weather"
-          render={() => (
-            <WeatherApi
-              component={Weather}
-              methodType="GET"
-              url="https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=e56b1e36f98ade931dfde82721d90023"
-            />
-          )}
-        />
+        
       </Switch>
     </Router>
   );
