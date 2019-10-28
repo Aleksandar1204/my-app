@@ -1,15 +1,18 @@
 import React from "react";
 import axios from "axios";
-import { writeUsersToStore } from "./redux/actions/writeUsersToStore";
+import {
+  writeUsersToStore,
+  addUserToStore
+} from "./redux/actions/writeUsersToStore";
 import { connect } from "react-redux";
+import "../assets/style.css";
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showModal: null,
-      data: null,
-      
+      data: null
     };
   }
   componentDidMount() {
@@ -24,31 +27,114 @@ class Table extends React.Component {
       });
   }
 
-
+  saveUser = id => {
+    const newUser = {
+      id: id,
+      name: document.getElementById("name").value,
+      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
+      address: document.getElementById("address").value
+    };
+    this.props.addUserToStore(newUser);
+  };
 
   addUser = () => {
     this.setState({
-      showModal: 
-        <div>
-          <input placeholder="name" />
-          <input placeholder="username" />
-          <input placeholder="email" />
-          <input placeholder="address" />
-          
-        </div>   
+      showModal: (
+        <div className="my-modal">
+          <div className="form-container">
+            <div className="text-container">ADD NEW USER</div>
+            <input
+              id="name"
+              type="text"
+              className="form-control"
+              placeholder="name"
+            />
+            <input
+              id="username"
+              type="text"
+              className="form-control"
+              placeholder="username"
+            />
+            <input
+              id="email"
+              type="text"
+              className="form-control"
+              placeholder="email"
+            />
+            <input
+              id="address"
+              type="text"
+              className="form-control"
+              placeholder="address"
+            />
+            <button
+              id="save"
+              onClick={() => this.saveUser(user.id)}
+              className="btn btn-success"
+            >
+              SAVE
+            </button>
+            <button
+              id="close"
+              onClick={() => this.setState({ showModal: null })}
+              className="btn btn-secondary"
+            >
+              close
+            </button>
+          </div>
+        </div>
+      )
     });
   };
 
-  editUser = (user) => {
+  editUser = user => {
     this.setState({
-      showModal: 
-        <div>
-          <input defaultValue={user.name} />
-          <input defaultValue={user.username} />
-          <input defaultValue={user.email} />
-          <input defaultValue={user.address} />
+      showModal: (
+        <div className="my-modal">
+          <div className="form-container">
+            <div className="text-container">EDIT USER</div>
+            <input
+              id="name"
+              type="text"
+              className="form-control"
+              defaultValue={user.name}
+            />
+            <input
+              id="username"
+              type="text"
+              className="form-control"
+              defaultValue={user.username}
+            />
+            <input
+              id="email"
+              type="text"
+              className="form-control"
+              defaultValue={user.email}
+            />
+            <input
+              id="address"
+              type="text"
+              className="form-control"
+              defaultValue={user.address.street + " " + user.address.suite}
+            />
+            <button
+              id="save"
+              onClick={() => this.saveUser(user.id)}
+              className="btn btn-success"
+            >
+              SAVE
+            </button>
+            <button
+              id="close"
+              onClick={() => this.setState({ showModal: null })}
+              className="btn btn-secondary"
+            >
+              close
+            </button>
+          </div>
         </div>
-      
+      )
     });
   };
 
@@ -68,7 +154,11 @@ class Table extends React.Component {
             <td>{user.email}</td>
             <td>{`${user.address.street} ${user.address.suite}`}</td>
             <td>
-              <button id="edit" onClick={() => this.editUser(user)}>
+              <button
+                className="btn btn-secondary"
+                id="edit"
+                onClick={() => this.editUser(user)}
+              >
                 Edit
               </button>
             </td>
@@ -78,9 +168,20 @@ class Table extends React.Component {
     }
     return (
       <React.Fragment>
-         <button id="add" onClick={this.addUser}> Add user </button>
-        <table>
+        <table className="table">
+          {this.state.showModal}
           <thead>
+            <tr>
+              <th>
+                <button
+                  className="btn btn-success"
+                  id="add"
+                  onClick={this.addUser}
+                >
+                  Add user
+                </button>
+              </th>
+            </tr>
           </thead>
           <tbody>{usersList}</tbody>
         </table>
@@ -97,7 +198,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    writeUsersToStore: data => dispatch(writeUsersToStore(data))
+    writeUsersToStore: data => dispatch(writeUsersToStore(data)),
+    addUserToStore: data => dispatch(addUserToStore(data))
   };
 }
 
