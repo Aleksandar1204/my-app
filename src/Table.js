@@ -29,18 +29,13 @@ class Table extends React.Component {
   addUser = () => {
     this.setState({
       showModal: 
-       
         <div>
-          
           <input placeholder="name" />
           <input placeholder="username" />
           <input placeholder="email" />
           <input placeholder="address" />
           
-        </div>
-         
-          
-      
+        </div>   
     });
   };
 
