@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import {
   writeUsersToStore,
-  addUserToStore
+  addUserToStore,
+  removeUserToStore
 } from "./redux/actions/writeUsersToStore";
 import { connect } from "react-redux";
 import "../assets/style.css";
@@ -11,8 +12,7 @@ class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: null,
-      data: null
+      showModal: null
     };
   }
   componentDidMount() {
@@ -36,6 +36,8 @@ class Table extends React.Component {
       address: document.getElementById("address").value
     };
     this.props.addUserToStore(newUser);
+    //avtomatski go zatvara modalot od save
+    this.setState({ showModal: null });
   };
 
   addUser = () => {
@@ -70,7 +72,7 @@ class Table extends React.Component {
             />
             <button
               id="save"
-              onClick={() => this.saveUser()}
+              onClick={() => this.saveUser()} //segde kaj sto ima parametri mora da ima arrow funcion
               className="btn btn-success"
             >
               SAVE
@@ -138,6 +140,10 @@ class Table extends React.Component {
     });
   };
 
+  deleteUser = user => {
+    this.props.removeUserToStore(user);
+  };
+
   render() {
     let header = null;
     let usersList = null;
@@ -160,6 +166,13 @@ class Table extends React.Component {
                 onClick={() => this.editUser(user)}
               >
                 Edit
+              </button>
+              <button
+                className="btn btn-danger"
+                id="delete"
+                onClick={() => this.deleteUser(user)}
+              >
+                Delete
               </button>
             </td>
           </tr>
@@ -199,7 +212,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     writeUsersToStore: data => dispatch(writeUsersToStore(data)),
-    addUserToStore: data => dispatch(addUserToStore(data))
+    addUserToStore: data => dispatch(addUserToStore(data)),
+    removeUserToStore: data => dispatch(removeUserToStore(data))
   };
 }
 

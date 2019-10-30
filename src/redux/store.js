@@ -3,6 +3,7 @@ import { userReducer } from "./reducers/userReducer.js";
 import { usersTableReducer } from "./reducers/usersTableReducer.js";
 import { weatherReducer } from "./reducers/weatherReducer.js";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 
 const singleReducer = combineReducers({
   userReducer,
@@ -11,7 +12,7 @@ const singleReducer = combineReducers({
 });
 
 //Creates an empty store object{}
-const store = createStore(singleReducer, applyMiddleware(logger));
+const store = createStore(singleReducer, applyMiddleware(logger, thunk));
 
 console.log(store.getState());
 
