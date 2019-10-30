@@ -9,22 +9,17 @@ export function usersTableReducer(state = { users: [] }, action) {
     case "SAVE_USER": {
       const newUser = action.payload;
       let newAray = [];
-      if (!newUser.id) {
-        const newAray = state.users.slice();
+      if (!newUser.id) { 
         newUser.id = state.users.length + 1;
         newAray.push(newUser);
-      } else {
-        const newAray = state.users.slice();
-        for (let i = 0; i < newAray.length; i++) {
-          if (newAray[i].id === newUser.id) {
-            newAray.splice(i, 1, newUser);
-            break;
-          }
-        }
-      }
+      } 
+        
+        
       return {
         ...state,
-        users: newAray
+       users: [action.payload]
+        
+        
       };
     }
     case "DELETE_USER": {

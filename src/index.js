@@ -10,51 +10,16 @@ import Expenses from "./Expenses";
 import Wrapper from "./Wrapper";
 import Home from "./Home";
 import UsersList from "./UsersList";
-
 import WeatherApi from "./WeatherApi";
 import Table from "./Table";
+import Menu from './Menu'
 
-import "../assets/Menu.css";
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const app = document.getElementById("app");
 
-const Menu = () => {
-  return (
-    <div id="menu">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/login">Log in</Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
-        <li>
-          <Link to="/newproduct">Newproduct</Link>
-        </li>
-        <li>
-          <Link to="/expenses">Expenses</Link>
-        </li>
-        <li>
-          <Link to="/user">User</Link>
-        </li>
-        <li>
-          <Link to="/weather">Weather</Link>
-        </li>
-        <li>
-          <Link to="/table">Table</Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
 
 const Routes = () => {
   return (

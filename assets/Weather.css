@@ -1,0 +1,42 @@
+.weather-container{
+
+
+width: 90%;
+height: 100%;
+
+
+}
+
+.weather-container h1{
+    margin-bottom: 100px;
+    
+    }
+
+.search-container{
+    position: absolute;
+    width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+line-height: 75px;
+align-items: center;
+text-align: center;
+}    
+.search-container table{
+
+align-items: center;
+}    
+
+#search-town{
+    margin-bottom: 50px;
+    width: 300px;
+    text-align: center;
+    font-size: 3em;
+}
+
+#search-city{
+    margin-bottom: 50px;
+    width: 300px;
+    text-align: center;
+   
+}

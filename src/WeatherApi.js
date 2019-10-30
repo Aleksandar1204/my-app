@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { weatherAction } from "./redux/actions/weatherAction";
 import { connect } from "react-redux";
+import store from './redux/store.js'
+import "../assets/Weather.css";
+
 
 class WeatherApi extends React.Component {
   constructor(props) {
@@ -12,19 +15,20 @@ class WeatherApi extends React.Component {
       city: ""
     };
   }
+  
   saveInput = event => {
     this.setState({ city: event.target.value });
   };
 
   componentDidMount() {
     const newTown = document.querySelector("#search-town").value;
-
+  
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/find?q=${newTown}&units=metric&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
+        `https://api.openweathermap.org/data/2.5/find?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
       )
       .then(response => {
-        this.props.weatherAction(response.data);
+        store.dispatch(weatherAction(response.data));
       })
       .catch(error => {
         console.log(error);
@@ -32,7 +36,10 @@ class WeatherApi extends React.Component {
   }
 
   render() {
+    
     let getWeather = null;
+   
+     
     if (this.props.weather) {
       getWeather = this.props.weather.map(city => {
         return (
@@ -41,19 +48,24 @@ class WeatherApi extends React.Component {
             <td>{city.count}</td>
             <td>{city.cod}</td>
             <td>{`${city.list[0].name}`}</td>
-            <td>{`${city.list[0].clouds.all}`}</td>
+            <td>{`${city.list[0].weather[0].description}`}</td>
           </tr>
         );
       });
     }
-
     return (
       <React.Fragment>
+        <div className="weather-container">
+          <div className="search-container">
         <h1>WEATHER</h1>
-        <br />
+        
         <input id="search-town" onChange={this.saveInput} type="text" />
-        <button onClick={this.componentDidMount}>Search</button>
-        <table>{getWeather}</table>
+        <button id="search-city" className="btn btn-success" onClick={this.componentDidMount}>SEARCH</button>
+        <table>
+        <tbody>{getWeather}</tbody>
+        </table>
+        </div>
+        </div>
       </React.Fragment>
     );
   }
@@ -65,13 +77,5 @@ function mappStateToProps(state) {
   };
 }
 
-function mappDispatchToProps(dispatch) {
-  return {
-    weatherAction: data => dispatch(weatherAction(data))
-  };
-}
 
-export default connect(
-  mappStateToProps,
-  mappDispatchToProps
-)(WeatherApi);
+export default connect(mappStateToProps)(WeatherApi);

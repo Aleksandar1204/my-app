@@ -70,7 +70,7 @@ class Table extends React.Component {
             />
             <button
               id="save"
-              onClick={() => this.saveUser(user.id)}
+              onClick={() => this.saveUser()}
               className="btn btn-success"
             >
               SAVE
