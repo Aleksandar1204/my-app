@@ -1,16 +1,8 @@
-.weather-container{
 
 
-width: 90%;
-height: 100%;
 
 
-}
 
-.weather-container h1{
-    margin-bottom: 100px;
-    
-    }
 
 .search-container{
     position: absolute;
@@ -21,22 +13,55 @@ flex-direction: column;
 line-height: 75px;
 align-items: center;
 text-align: center;
+background-image: url(https://storage.googleapis.com/bri-web-app-wordpress/2019/08/65c904e8-clouds-dawn-dramatic-1118873.jpg);
+background-size: cover;
 }    
-.search-container table{
+#table-weather{
 
 align-items: center;
 }    
+
+#table-weather td{
+background-color: teal;
+color: white;
+    }    
+      
 
 #search-town{
     margin-bottom: 50px;
     width: 300px;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
+    border-radius: 10px;
 }
 
 #search-city{
     margin-bottom: 50px;
     width: 300px;
     text-align: center;
+    
    
+}
+
+.weather-container{
+    width: 40%;
+    height: 70%;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  border-radius: 20px;
+  margin-top: 40px;
+  background-image: url(https://scx1.b-cdn.net/csz/news/800/2018/1-whytheweathe.jpg)
+}
+
+.weather-container h1{
+  margin-bottom: 100px;
+  top: 20%;
+  left: 10%;
+  transform: translate(-50% , -50%);
+  font-size: 1.6em;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: rgb(255, 255, 255);
+  
 }
