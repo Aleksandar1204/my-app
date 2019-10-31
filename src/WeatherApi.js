@@ -44,7 +44,7 @@ class WeatherApi extends React.Component {
             <td>CITY: {`${city.list[0].name}`}</td>
             <td>COUNTRY: {`${city.list[0].sys.country}`}</td>
             <td>TEMPERATURE: {`${Math.floor(city.list[0].main.temp-273.15)}`} &#8451;</td>
-            <td>CLOUDS: {`${city.list[0].weather[0].description}`}</td>
+            <td>WEATHER: {`${city.list[0].weather[0].description}`}</td>
             <td>WIND: {`${city.list[0].wind.speed}`} km/h</td>
             <td>HUMIDITY: {`${city.list[0].main.humidity}`}%</td>
           </tr>

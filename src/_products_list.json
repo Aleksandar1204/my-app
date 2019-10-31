@@ -1,0 +1,11 @@
+[
+    {
+        "id":1,
+        "name":"Pizza",
+        "description":"delicious",
+        "type":"food",
+        "date":"10/31/2019",
+        "price":"50"
+
+    }
+]

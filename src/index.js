@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import Login from "./Login";
 import Register from "./Register";
-import Products from "./Products";
+import Product from "./Product";
 import Newproduct from "./Newproduct";
 import Expenses from "./Expenses";
 import Wrapper from "./Wrapper";
@@ -29,7 +29,7 @@ const Routes = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/products" component={Products} />
+        <Route exact path="/product" component={Product} />
         <Route exact path="/newproduct" component={Newproduct} />
         <Route exact path="/expenses" component={Expenses} />
         <Route exact path="/table" component={Table} />
