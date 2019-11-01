@@ -19,12 +19,24 @@ class WeatherApi extends React.Component {
     this.setState({ city: event.target.value });
   };
 
-  componentDidMount() {
+  searchTown = () => {
     const newTown = document.querySelector("#search-town").value;
-
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/find?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
+      )
+      .then(response => {
+        store.dispatch(weatherAction(response.data));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  componentDidMount() {
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/find?q=London&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
       )
       .then(response => {
         store.dispatch(weatherAction(response.data));
@@ -40,13 +52,13 @@ class WeatherApi extends React.Component {
     if (this.props.weather) {
       getWeather = this.props.weather.map(city => {
         return (
-          <tr key={city.id}> 
-            <td>CITY: {`${city.list[0].name}`}</td>
-            <td>COUNTRY: {`${city.list[0].sys.country}`}</td>
-            <td>TEMPERATURE: {`${Math.floor(city.list[0].main.temp-273.15)}`} &#8451;</td>
-            <td>WEATHER: {`${city.list[0].weather[0].description}`}</td>
-            <td>WIND: {`${city.list[0].wind.speed}`} km/h</td>
-            <td>HUMIDITY: {`${city.list[0].main.humidity}`}%</td>
+          <tr key={city.list[0].id}> 
+            <td>CITY: {city.list[0].name}</td>
+            <td>COUNTRY: {city.list[0].sys.country}</td>
+            <td>TEMPERATURE: {Math.floor(city.list[0].main.temp-273.15)} &#8451;</td>
+            <td>WEATHER: {city.list[0].weather[0].description}</td>
+            <td>WIND: {city.list[0].wind.speed} km/h</td>
+            <td>HUMIDITY: {city.list[0].main.humidity}%</td>
           </tr>
         );
       });
@@ -62,7 +74,7 @@ class WeatherApi extends React.Component {
             <button
               id="search-city"
               className="btn btn-success"
-              onClick={this.componentDidMount}
+              onClick={this.searchTown}
             >
               SEARCH
             </button>
@@ -77,10 +89,10 @@ class WeatherApi extends React.Component {
   }
 }
 
-function mappStateToProps(state) {
+function mapStateToProps(state) {
   return {
     weather: state.weatherReducer.weather
   };
 }
 
-export default connect(mappStateToProps)(WeatherApi);
+export default connect(mapStateToProps)(WeatherApi);
