@@ -36,9 +36,10 @@ class Product extends React.Component {
           });
       }
 
-      addProduct = () => {
-        this.setState({
-          showModal: (
+      addProduct = () => { 
+          this.setState({
+            showModal:(
+              
             <div id="products">
             <div className="navigator">
                  <div className="buttons-nav">
@@ -107,10 +108,13 @@ class Product extends React.Component {
         </div>
            
         </div>
-          )
+            
+            )  
+          
         });
-      };
-
+        ;
+    }
+        
       saveUser = id => {
         const newProduct = {
           id: id,
@@ -222,7 +226,7 @@ class Product extends React.Component {
                 <div className="table-nav">
                     <h1>Products</h1>
 
-                    <div className="select-box">
+                    <div id="select-box">
                         <p>Filter by:
             <select>
                                 <option value="year">Year</option>

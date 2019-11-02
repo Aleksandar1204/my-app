@@ -7,5 +7,42 @@
         "date":"10/31/2019",
         "price":"50"
 
+    },
+
+    {
+        "id":2,
+        "name":"Burger",
+        "description":"delicious",
+        "type":"food",
+        "date":"10/31/2019",
+        "price":"70"
+
+    },
+    {
+        "id":3,
+        "name":"Chocolate",
+        "description":"delicious",
+        "type":"food",
+        "date":"10/31/2019",
+        "price":"30"
+
+    },
+    {
+        "id":4,
+        "name":"Lasagne",
+        "description":"delicious",
+        "type":"food",
+        "date":"10/31/2019",
+        "price":"100"
+
+    },
+    {
+        "id":5,
+        "name":"Spageti",
+        "description":"delicious",
+        "type":"food",
+        "date":"10/31/2019",
+        "price":"90"
+
     }
 ]

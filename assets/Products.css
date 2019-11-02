@@ -31,6 +31,7 @@ html, body {
 .navigator{
     
     display: flex;
+    position: absolute;
     flex-direction: row;
     padding-bottom: 30px;
    
