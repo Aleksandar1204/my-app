@@ -36,7 +36,7 @@ class WeatherApi extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/find?q=London&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
+        `https://api.openweathermap.org/data/2.5/find?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
       )
       .then(response => {
         store.dispatch(weatherAction(response.data));

@@ -8,9 +8,12 @@ import {
 import { connect } from "react-redux";
 import '../assets/Products.css'
 import '../assets/Shared.css'
+import  '../assets/Newproduct.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -32,6 +35,82 @@ class Product extends React.Component {
             console.log(error);
           });
       }
+
+      addProduct = () => {
+        this.setState({
+          showModal: (
+            <div id="products">
+            <div className="navigator">
+                 <div className="buttons-nav">
+                <button className="products-button">PRODUCTS</button>
+                <button className="expenses-button">EXPENSES</button>
+                 </div>
+                <p className="img-text">Gal Gadot</p>
+    
+            </div>
+            
+            <h1>New Product</h1>      
+                    
+        <div className="new-container">
+    
+               
+         
+    
+            <div className="first-container">
+    
+            <div id="new-product">
+    
+            <form>
+    
+                    <p className="input-container"> 
+                        <label className="text-field-input" for="">Product Name</label>
+                        <input type="text" id="name" className="text-field"/>
+                    </p>
+    
+                    <p className="input-container"> 
+                            <label className="text-field-input" for="">Product Description</label>
+                            <input type="text" id="description" className="text-field"/>
+                    </p>
+    
+                    <p className="input-container"> 
+                        <label className="text-field-input" for="">Product Type</label>
+                        <input type="text" id="type" className="text-field"/>
+                    </p>
+    
+                    <p className="input-container"> 
+                        <label className="text-field-input" for="">Purchase Date</label>
+                        <input type="text" id="date" className="text-field"/>
+                    </p>
+    
+                    <p className="input-container">
+                        <label className="text-field-input" for="">Product Price</label>
+                        <input type="text" id="price" className="text-field"/>
+                    </p>
+    
+    
+                    <button id="save"
+              onClick={() => this.saveUser()} className="primary-button">CREATE PRODUCT</button>
+               
+                    
+                </form>
+            </div>
+            
+        </div>
+        <div className="second-container">
+                <div className="products-add">
+                <FontAwesomeIcon icon={faPlusCircle } />
+                <p>You are creating a new product</p>
+        </div>
+    
+        </div>
+        
+        </div>
+           
+        </div>
+          )
+        });
+      };
+
       saveUser = id => {
         const newProduct = {
           id: id,
@@ -103,6 +182,10 @@ class Product extends React.Component {
           )
         });
       };
+      deleteUser = product => {
+        this.props.removeProductToStore(product);
+      };
+
     render(){
         let header = null;
         let productsList = null;
@@ -117,7 +200,7 @@ class Product extends React.Component {
             <td>{product.date}</td>
             <td>{product.price}</td>
             <td><button  id="edit" className="btn" onClick={() => this.editUser(product)}><FontAwesomeIcon icon={faEdit} /></button> 
-            <button className="btn"><FontAwesomeIcon icon={faTrashAlt} /></button></td>
+            <button className="btn" onClick={() => this.deleteUser(product)}><FontAwesomeIcon icon={faTrashAlt} /></button></td>
             </tr>
         );
        });
@@ -165,7 +248,8 @@ class Product extends React.Component {
                     
                     </thead>
                     <tbody>{productsList}</tbody>
-                    <button className="fixedbutton">NEW PRODUCT</button>
+                    <button className="fixedbutton"  id="add"
+                  onClick={this.addProduct}>NEW PRODUCT</button>
                 </table>
             </div>
 
