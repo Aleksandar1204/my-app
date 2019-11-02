@@ -20,7 +20,7 @@ class WeatherApi extends React.Component {
   };
 
   searchTown = () => {
-    const newTown = document.querySelector("#search-town").value;
+    let newTown = document.querySelector("#search-town").value;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/find?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
