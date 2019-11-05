@@ -36,7 +36,7 @@ class WeatherApi extends React.Component {
   componentDidMount() {
     axios.all([
       axios.get(`https://api.openweathermap.org/data/2.5/find?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`),
-      axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
     ])
       .then(axios.spread((firstResponse, secondResponse) => {
         store.dispatch(weatherAction(firstResponse.data,secondResponse.data));
@@ -54,7 +54,7 @@ class WeatherApi extends React.Component {
     if (this.props.weather) {
       getWeather = this.props.weather.map(city => {
         return (
-          <tr key={city.list[0].id}> 
+          <tr key={city.list.id}> 
             <td>CITY: {city.list[0].name}</td>
             <td>COUNTRY: {city.list[0].sys.country}</td>
             <td>TEMPERATURE: {Math.floor(city.list[0].main.temp-273.15)} &#8451;</td>
