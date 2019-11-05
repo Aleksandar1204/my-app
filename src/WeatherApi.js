@@ -34,13 +34,15 @@ class WeatherApi extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/find?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
-      )
-      .then(response => {
-        store.dispatch(weatherAction(response.data));
+    axios.all([
+      axios.get(`https://api.openweathermap.org/data/2.5/find?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`),
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
+    ])
+      .then(axios.spread((firstResponse, secondResponse) => {
+        store.dispatch(weatherAction(firstResponse.data,secondResponse.data));
       })
+      )
+      
       .catch(error => {
         console.log(error);
       });
@@ -60,6 +62,7 @@ class WeatherApi extends React.Component {
             <td>WIND: {city.list[0].wind.speed} km/h</td>
             <td>HUMIDITY: {city.list[0].main.humidity}%</td>
           </tr>
+      
         );
       });
     }

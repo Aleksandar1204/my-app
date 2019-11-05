@@ -1,6 +1,11 @@
-export function weatherAction(weather) {
+export function weatherAction(weatherData, forecastData) {
     return {
         type: 'CHECK_WEATHER',
-        payload: weather
+        payload: {
+            weather:weatherData, 
+            forecast:forecastData
+        }
+
+       
     }
 }
