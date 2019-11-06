@@ -36,7 +36,7 @@ class WeatherApi extends React.Component {
   componentDidMount() {
     axios.all([
       axios.get(`https://api.openweathermap.org/data/2.5/find?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`),
-      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Skopje&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Skopje,MK&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
     ])
       .then(axios.spread((firstResponse, secondResponse) => {
         store.dispatch(weatherAction(firstResponse.data,secondResponse.data));
@@ -52,17 +52,21 @@ class WeatherApi extends React.Component {
     let getWeather = null;
 
     if (this.props.weather) {
-      getWeather = this.props.weather.map(city => {
+      getWeather = this.props.weather.map((cityz, index)  => {
         return (
-          <tr key={city.list.id}> 
-            <td>CITY: {city.list[0].name}</td>
-            <td>COUNTRY: {city.list[0].sys.country}</td>
-            <td>TEMPERATURE: {Math.floor(city.list[0].main.temp-273.15)} &#8451;</td>
-            <td>WEATHER: {city.list[0].weather[0].description}</td>
-            <td>WIND: {city.list[0].wind.speed} km/h</td>
-            <td>HUMIDITY: {city.list[0].main.humidity}%</td>
+          <tr key={index}> 
+            <td>CITY: {cityz.list[0].name}</td>
+            <td>COUNTRY: {cityz.list[0].sys.country}</td>
+            <td>TEMPERATURE: {Math.floor(cityz.list[0].main.temp-273.15)} &#8451;</td>
+            <td>WEATHER: {cityz.list[0].weather[0].description}</td>
+            <td>WIND: {cityz.list[0].wind.speed} km/h</td>
+            <td>HUMIDITY: {cityz.list[0].main.humidity}%</td>
+           
+            
           </tr>
-      
+           
+         
+     
         );
       });
     }
@@ -86,7 +90,6 @@ class WeatherApi extends React.Component {
               <tbody>{getWeather}</tbody>
             </table>
           </div>
-        
       </React.Fragment>
     );
   }
@@ -94,7 +97,8 @@ class WeatherApi extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    weather: state.weatherReducer.weather
+    weather: state.weatherReducer.weather,
+   
   };
 }
 
