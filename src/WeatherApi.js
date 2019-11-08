@@ -65,14 +65,14 @@ class WeatherApi extends React.Component {
     if (this.props.curweather) {
       curentWeather = this.props.curweather.map((cityz)  => {
         return (
-          <tr key={cityz.list[0].id}> 
-            <td>CITY: {cityz.list[0].name}</td>
-            <td>COUNTRY: {cityz.list[0].sys.country}</td>
-            <td>TEMPERATURE: {Math.floor(cityz.list[0].main.temp-273.15)} &#8451;</td>
-            <td>WEATHER: {cityz.list[0].weather[0].description}</td>
-            <td>WIND: {cityz.list[0].wind.speed} km/h</td>
-            <td>HUMIDITY: {cityz.list[0].main.humidity}%</td>
-          </tr>
+          <ul key={cityz.list[0].id}> 
+            <li>CITY: {cityz.list[0].name}</li>
+            <li>COUNTRY: {cityz.list[0].sys.country}</li>
+            <li>TEMPERATURE: {Math.floor(cityz.list[0].main.temp-273.15)} &#8451;</li>
+            <li>WEATHER: {cityz.list[0].weather[0].description}</li>
+            <li>WIND: {cityz.list[0].wind.speed} km/h</li>
+            <li>HUMIDITY: {cityz.list[0].main.humidity}%</li>
+          </ul>
            
          
      
@@ -105,8 +105,10 @@ class WeatherApi extends React.Component {
       <React.Fragment>
         
           <div className="search-container">
+          {curentWeather}
             <div className="weather-container">
-            <h1>WEATHER</h1>
+           
+            
             <input id="search-town" onChange={this.saveInput} type="text" />
             <button
               id="search-city"
@@ -120,7 +122,7 @@ class WeatherApi extends React.Component {
             <table id="table-weather">
             
               <tbody>
-              {curentWeather}
+             
               {forestWeather}
              
               </tbody>
