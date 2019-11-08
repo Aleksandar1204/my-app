@@ -2,7 +2,7 @@ export function weatherAction(weatherData, forecastData) {
     return {
         type: 'CHECK_WEATHER',
         payload: {
-            weather:weatherData, 
+            current:weatherData, 
             forecast:forecastData
         }
 

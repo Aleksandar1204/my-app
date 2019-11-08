@@ -1,8 +1,9 @@
-export function weatherReducer (state = {weather: []}, action) {
+export function weatherReducer (state = {curweather: [],forweather:[]}, action) {
     switch(action.type) {
         case 'CHECK_WEATHER': {
             return {...state, 
-                weather: [action.payload.weather, action.payload.forecast],
+                curweather: [action.payload.current] ,
+                forweather: [action.payload.forecast]
             
             } 
         }
@@ -11,3 +12,6 @@ export function weatherReducer (state = {weather: []}, action) {
         }
     }
 }
+
+
+

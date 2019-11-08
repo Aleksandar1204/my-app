@@ -21,13 +21,19 @@ class WeatherApi extends React.Component {
 
   searchTown = () => {
     let newTown = document.querySelector("#search-town").value;
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/find?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`
-      )
-      .then(response => {
-        store.dispatch(weatherAction(response.data));
+    axios.all([
+      axios.get(`https://api.openweathermap.org/data/2.5/find?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`),
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${newTown}&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
+    ])
+      .then(axios.spread((firstResponse, secondResponse) => {
+      store.dispatch(weatherAction(firstResponse.data,
+            secondResponse.data.list.filter(reading => reading.dt_txt.includes("15:00:00"))
+        ));
+       
       })
+      
+      )
+      
       .catch(error => {
         console.log(error);
       });
@@ -39,9 +45,13 @@ class WeatherApi extends React.Component {
       axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Skopje,MK&appid=5e6ac2a8fbfe8be0162b956ba8be09e9`)
     ])
       .then(axios.spread((firstResponse, secondResponse) => {
-        store.dispatch(weatherAction(firstResponse.data,secondResponse.data));
+            store.dispatch(weatherAction(firstResponse.data,
+              secondResponse.data.list.filter(reading => reading.dt_txt.includes("15:00:00", "18:00:00"))
+              ));
       })
       )
+        
+      
       
       .catch(error => {
         console.log(error);
@@ -49,19 +59,39 @@ class WeatherApi extends React.Component {
   }
 
   render() {
-    let getWeather = null;
-
-    if (this.props.weather) {
-      getWeather = this.props.weather.map((cityz, index)  => {
+    let curentWeather = null;
+    
+    
+    if (this.props.curweather) {
+      curentWeather = this.props.curweather.map((cityz)  => {
         return (
-          <tr key={index}> 
+          <tr key={cityz.list[0].id}> 
             <td>CITY: {cityz.list[0].name}</td>
             <td>COUNTRY: {cityz.list[0].sys.country}</td>
             <td>TEMPERATURE: {Math.floor(cityz.list[0].main.temp-273.15)} &#8451;</td>
             <td>WEATHER: {cityz.list[0].weather[0].description}</td>
             <td>WIND: {cityz.list[0].wind.speed} km/h</td>
             <td>HUMIDITY: {cityz.list[0].main.humidity}%</td>
+          </tr>
            
+         
+     
+        );
+      });
+    
+    }
+    let forestWeather = null;
+    if (this.props.forweather) {
+      forestWeather = this.props.forweather.map((cityz,index)  => {
+        return (
+          <tr key={index}> 
+            
+            <td>SATURDAY: {Math.floor(cityz[0].main.temp_min-273.15)} &#8451; 
+            {Math.floor(cityz[0].main.temp_max-273.15)} &#8451;</td>
+            <td>SUNDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
+            <td>MONDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
+            <td>TUESDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
+            <td>WEDNESDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
             
           </tr>
            
@@ -69,6 +99,7 @@ class WeatherApi extends React.Component {
      
         );
       });
+    
     }
     return (
       <React.Fragment>
@@ -76,7 +107,6 @@ class WeatherApi extends React.Component {
           <div className="search-container">
             <div className="weather-container">
             <h1>WEATHER</h1>
-
             <input id="search-town" onChange={this.saveInput} type="text" />
             <button
               id="search-city"
@@ -86,9 +116,19 @@ class WeatherApi extends React.Component {
               SEARCH
             </button>
             </div>
+
             <table id="table-weather">
-              <tbody>{getWeather}</tbody>
+            
+              <tbody>
+              {curentWeather}
+              {forestWeather}
+             
+              </tbody>
+              
             </table>
+        
+              
+            
           </div>
       </React.Fragment>
     );
@@ -97,7 +137,8 @@ class WeatherApi extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    weather: state.weatherReducer.weather,
+    curweather: state.weatherReducer.curweather,
+    forweather: state.weatherReducer.forweather,
    
   };
 }

@@ -228,8 +228,8 @@ class Product extends React.Component {
 
                     <div id="select-box">
                         <p>Filter by:
-            <select>
-                                <option value="year">Year</option>
+                               <select>
+                                <option id="" value="year">Year</option>
                                 <option value="highest-price">Highest Price</option>
                                 <option value="lowest-price">Lowest Price</option>
                                 <option value="latest-purchases">Latest Purchases</option>
