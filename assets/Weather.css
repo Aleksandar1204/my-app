@@ -14,7 +14,7 @@ background-image: url(https://storage.googleapis.com/bri-web-app-wordpress/2019/
 background-size: cover;
 }    
 #table-weather{
-
+    bottom: 0px;
 align-items: center;
 position: absolute;
 height: 20%;
@@ -56,6 +56,17 @@ color: white;
 }
 
 .search-container li{
-    line-height: 5.1;
+    line-height: 5;
+    margin-bottom: 0px;
     
+    
+    
+}
+
+#weather-heading {
+    font-size: 5em;
+    position: relative;
+    float:left;
+    color: white;
+    width:0%;
 }

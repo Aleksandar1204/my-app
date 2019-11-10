@@ -46,7 +46,7 @@ class WeatherApi extends React.Component {
     ])
       .then(axios.spread((firstResponse, secondResponse) => {
             store.dispatch(weatherAction(firstResponse.data,
-              secondResponse.data.list.filter(reading => reading.dt_txt.includes("15:00:00", "18:00:00"))
+              secondResponse.data.list.filter(reading => reading.dt_txt.includes("15:00:00"))
               ));
       })
       )
@@ -63,17 +63,19 @@ class WeatherApi extends React.Component {
     
     
     if (this.props.curweather) {
-      curentWeather = this.props.curweather.map((cityz)  => {
+      curentWeather = this.props.curweather.map((cityz,index)  => {
         return (
-          <ul key={cityz.list[0].id}> 
-            <li>CITY: {cityz.list[0].name}</li>
+          <div key={index}>
+            <h1 id="weather-heading">{cityz.list[0].name}</h1>
+          <ul> 
             <li>COUNTRY: {cityz.list[0].sys.country}</li>
             <li>TEMPERATURE: {Math.floor(cityz.list[0].main.temp-273.15)} &#8451;</li>
             <li>WEATHER: {cityz.list[0].weather[0].description}</li>
+           <li><img src={`http://openweathermap.org/img/wn/${cityz.list[0].weather[0].icon}@2x.png`}></img></li>
             <li>WIND: {cityz.list[0].wind.speed} km/h</li>
             <li>HUMIDITY: {cityz.list[0].main.humidity}%</li>
           </ul>
-           
+          </div>
          
      
         );
@@ -81,17 +83,18 @@ class WeatherApi extends React.Component {
     
     }
     let forestWeather = null;
+    var moment = require('moment');
+    
     if (this.props.forweather) {
       forestWeather = this.props.forweather.map((cityz,index)  => {
         return (
           <tr key={index}> 
-            
-            <td>SATURDAY: {Math.floor(cityz[0].main.temp_min-273.15)} &#8451; 
-            {Math.floor(cityz[0].main.temp_max-273.15)} &#8451;</td>
-            <td>SUNDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
-            <td>MONDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
-            <td>TUESDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
-            <td>WEDNESDAY: {Math.floor(cityz[0].main.temp-273.15)} &#8451;</td>
+            <td><img src={`http://openweathermap.org/img/wn/${cityz[0].weather[0].icon}@2x.png`}></img>{moment(cityz[0].dt * 1000).format("dddd")} {Math.floor(cityz[0].main.temp-273.15)} &#8451; </td>
+            <td><img src={`http://openweathermap.org/img/wn/${cityz[1].weather[0].icon}@2x.png`}></img>{moment(cityz[1].dt * 1000).format("dddd")} {Math.floor(cityz[1].main.temp-273.15)} &#8451;</td>
+            <td><img src={`http://openweathermap.org/img/wn/${cityz[2].weather[0].icon}@2x.png`}></img>{moment(cityz[2].dt * 1000).format("dddd")} {Math.floor(cityz[2].main.temp-273.15)} &#8451;</td>
+            <td><img src={`http://openweathermap.org/img/wn/${cityz[3].weather[0].icon}@2x.png`}></img>{moment(cityz[3].dt * 1000).format("dddd")} {Math.floor(cityz[3].main.temp-273.15)} &#8451;</td>
+            <td><img src={`http://openweathermap.org/img/wn/${cityz[4].weather[0].icon}@2x.png`}></img>{moment(cityz[4].dt * 1000).format("dddd")} {Math.floor(cityz[4].main.temp-273.15)} &#8451;</td>
+       
             
           </tr>
            
